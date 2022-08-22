@@ -1,23 +1,23 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: red;
-`;
-
-export const HeaderSidesHas = css`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+    height: 5rem;
 `;
 
 export const LeftContainer = styled.div`
     width: 12rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 `;
 
 export const RightContainer = styled.div`
-    width: 14rem;
+    width: 11rem;
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 `;

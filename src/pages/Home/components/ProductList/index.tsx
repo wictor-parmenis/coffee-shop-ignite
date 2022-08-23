@@ -1,18 +1,21 @@
 import React from 'react';
 import ProductCard from '../../../../components/Card/ProductCard';
-import { IProduct } from '../../../../contexts/productsContext';
+import { IFormattedProduct, IProduct } from '../../../../contexts/productsContext';
 
-import { ProductListContainer } from './styles';
+import { ProductListContainer, ProductListMain, TitleProductList } from './styles';
 
 interface IProductList {
-    products: IProduct[];
+    products: IFormattedProduct[];
 }
 
 const ProductList: React.FC<IProductList> = ({ products }) => (
   <ProductListContainer>
-    {products.map((product) => (
-      <ProductCard key={product.id} />
-    ))}
+    <TitleProductList>Nossos Cafés</TitleProductList>
+    <ProductListMain>
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </ProductListMain>
   </ProductListContainer>
 );
 

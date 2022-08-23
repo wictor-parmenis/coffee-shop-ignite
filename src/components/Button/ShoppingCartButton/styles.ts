@@ -27,15 +27,15 @@ export const ShoppingCartButtonContainer = styled.button<IShoppingCartButtonCont
     justify-content: center;
     font-weight: bold;
     text-transform: uppercase;
-    transition-duration: 0.3s;
     cursor: pointer;
     border: none;
     color: ${({ theme }) => theme.white};
     width: 2.5rem;
     height: 2.5rem;
+    transition-duration: 0.3s;
 
     &:hover {
-        background-color: ${(props) => props.themeButton !== 'secondary' && props.theme['purple-ligth']};
+        background-color: ${(props) => props.themeButton !== 'secondary' && props.theme.purple};
     }
 
     svg {

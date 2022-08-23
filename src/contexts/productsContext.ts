@@ -6,3 +6,8 @@ export interface IProduct {
     price: number;
     amount: number;
 }
+
+export type IEssentialProduct = Omit<IProduct, 'price'>;
+export interface IFormattedProduct extends IEssentialProduct {
+    price: string;
+}

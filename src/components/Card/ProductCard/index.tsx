@@ -5,9 +5,6 @@ import CoffeeImage from '../../../assets/american-express.png';
 
 import {
   CountDownContainer,
-  CounterButtonProduct,
-  CounterContainer,
-  CounterLabelProduct,
   DescriptionProduct,
   FooterProductCard,
   ImageProductContainer,
@@ -18,6 +15,7 @@ import {
   TagProduct,
   TitleProduct,
 } from './styles';
+import Counter from '../../Counter';
 
 interface IProductCard {
     product: IFormattedProduct;
@@ -40,12 +38,13 @@ const ProductCard: React.FC<IProductCard> = ({ product: { description, price, ti
         <DescriptionProduct>R$</DescriptionProduct>
         <PriceProduct>{price}</PriceProduct>
       </PriceContainer>
+
       <CountDownContainer>
-        <CounterContainer>
-          <CounterButtonProduct>_</CounterButtonProduct>
-          <CounterLabelProduct>1</CounterLabelProduct>
-          <CounterButtonProduct>+</CounterButtonProduct>
-        </CounterContainer>
+        <Counter
+          currentQuantity={1}
+          onLess={() => console.log('1')}
+          onMore={() => console.log('2')}
+        />
         <ShoppingCartButton theme="primary" />
       </CountDownContainer>
     </FooterProductCard>

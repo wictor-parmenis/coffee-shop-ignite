@@ -37,7 +37,9 @@ export const IconTextButtonContainer = styled.button<IIconTextButtonContainer>`
     padding: 0 1rem;
 
     &:hover {
-        background-color: ${(props) => props.themeButton !== 'secondary' && props.theme['purple-ligth']};
+        background-color: ${(props) => (props.themeButton !== 'secondary'
+    ? props.theme['purple-ligth']
+    : props.theme['base-hover'])};
     }
 
     svg {

@@ -28,7 +28,12 @@ export const MainProducts = styled.div`
     border-bottom-right-radius: 8px;
 `;
 
-export const CardProductsContainer = styled.div``;
+export const CardProductsContainer = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+`;
 
 export const PricingContainer = styled.div`
     display: flex;

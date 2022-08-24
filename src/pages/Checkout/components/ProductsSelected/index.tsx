@@ -1,5 +1,7 @@
 import React from 'react';
 import Button from '../../../../components/Button';
+import CheckoutProductCard from '../../../../components/Card/CheckoutProductCard';
+import { IFormattedProduct } from '../../../../contexts/productsContext';
 import {
   BoldDescriptionPrice,
   CardProductsContainer,
@@ -13,13 +15,23 @@ import {
   TitleProducts,
 } from './styles';
 
-// import { Container } from './styles';
+interface IProductsSelected {
+    products: IFormattedProduct[];
+}
 
-const ProductsSelected: React.FC = () => (
+const ProductsSelected: React.FC<IProductsSelected> = ({ products }) => (
   <ContainerProducts>
     <TitleProducts>Cafés selecionados</TitleProducts>
     <MainProducts>
-      <CardProductsContainer>{/* cards */}</CardProductsContainer>
+      <CardProductsContainer>
+        {products.map((product) => (
+          <CheckoutProductCard
+            product={product}
+            handleLess={() => console.log('less')}
+            handleMore={() => console.log('more')}
+          />
+        ))}
+      </CardProductsContainer>
       <PricingContainer>
         <RowPricing>
           <DescriptionPrice>Total de Itens</DescriptionPrice>

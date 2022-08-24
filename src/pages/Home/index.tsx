@@ -6,7 +6,7 @@ import { Container } from './styles';
 
 // import { Container } from './styles';
 
-const productsList = [
+export const productsList = [
   {
     id: '1',
     amount: 4,

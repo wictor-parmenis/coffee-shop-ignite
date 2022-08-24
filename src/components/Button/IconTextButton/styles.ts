@@ -22,19 +22,19 @@ export const IconTextButtonContainer = styled.button<IIconTextButtonContainer>`
     ${(props) => iconTextButtonThemeColor[props.themeButton]};
 
     display: flex;
-    gap: 0.5rem;
+    gap: 0.8rem;
 
     border-radius: 8px;
     height: 3rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     transition-duration: 0.3s;
     cursor: pointer;
     border: none;
     color: ${({ theme }) => theme['base-text']};
     height: 2.5rem;
-    padding: 0 0.5rem;
+    padding: 0 1rem;
 
     &:hover {
         background-color: ${(props) => props.themeButton !== 'secondary' && props.theme['purple-ligth']};

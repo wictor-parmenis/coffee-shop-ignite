@@ -12,7 +12,7 @@ export const CounterButtonProduct = styled.button`
     outline: none;
     border: none;
     background-color: ${({ theme }) => theme['base-button']};
-    color: ${({ theme }) => theme['purple-dark']};
+    color: ${({ theme }) => theme.purple};
     font-size: 1.1rem;
 
     cursor: pointer;
@@ -30,6 +30,10 @@ export const CounterButtonProduct = styled.button`
     &:last-child {
         border-top-right-radius: 6px;
         border-bottom-right-radius: 6px;
+    }
+
+    &:hover {
+        color: ${({ theme }) => theme['purple-dark']};
     }
 `;
 

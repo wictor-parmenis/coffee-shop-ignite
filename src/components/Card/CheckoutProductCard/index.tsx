@@ -16,6 +16,7 @@ import Image from '../../../assets/american-express.png';
 interface ICheckoutProductCard {
     handleLess: () => void;
     handleMore: () => void;
+    handleRemove: () => void;
     product: IFormattedProduct;
 }
 
@@ -25,6 +26,7 @@ const CheckoutProductCard: React.FC<ICheckoutProductCard> = ({
   },
   handleLess,
   handleMore,
+  handleRemove,
 }) => (
   <CardContainer>
     <LeftCardContainer>
@@ -34,7 +36,7 @@ const CheckoutProductCard: React.FC<ICheckoutProductCard> = ({
       <SubTitleCard>{title}</SubTitleCard>
       <ControlsCard>
         <Counter currentQuantity={amount} onLess={handleLess} onMore={handleMore} />
-        <IconTextButton themeButton="secondary" icon="trash">
+        <IconTextButton themeButton="secondary" icon="trash" onClick={handleRemove}>
           Remover
         </IconTextButton>
       </ControlsCard>

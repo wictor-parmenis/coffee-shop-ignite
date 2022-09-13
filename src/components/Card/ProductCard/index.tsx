@@ -1,5 +1,9 @@
-import React from 'react';
-import { IFormattedProduct, IProduct } from '../../../contexts/productsContext';
+import React, { useContext } from 'react';
+import {
+  IFormattedProduct,
+  IProductsContext,
+  ProductsContext,
+} from '../../../contexts/productsContext';
 import ShoppingCartButton from '../../Button/ShoppingCartButton';
 import CoffeeImage from '../../../assets/american-express.png';
 
@@ -19,36 +23,48 @@ import Counter from '../../Counter';
 
 interface IProductCard {
     product: IFormattedProduct;
+    quantityCartItem: number;
 }
 
-const ProductCard: React.FC<IProductCard> = ({ product: { description, price, title } }) => (
-  <ProductCardContainer>
-    <ImageProductContainer>
-      <img src={CoffeeImage} alt={title} />
-    </ImageProductContainer>
+const ProductCard: React.FC<IProductCard> = ({
+  product: {
+    description, price, title, id,
+  },
+  quantityCartItem,
+}) => {
+  const { addProductOnCart, updateCartProducts } = useContext<IProductsContext>(
+        ProductsContext as React.Context<IProductsContext>,
+  );
 
-    <MainProductCard>
-      <TagProduct>ótimo</TagProduct>
-      <TitleProduct>{title}</TitleProduct>
-      <DescriptionProduct>{description}</DescriptionProduct>
-    </MainProductCard>
+  return (
+    <ProductCardContainer>
+      <ImageProductContainer>
+        <img src={CoffeeImage} alt={title} />
+      </ImageProductContainer>
 
-    <FooterProductCard>
-      <PriceContainer>
-        <DescriptionProduct>R$</DescriptionProduct>
-        <PriceProduct>{price}</PriceProduct>
-      </PriceContainer>
+      <MainProductCard>
+        <TagProduct>ótimo</TagProduct>
+        <TitleProduct>{title}</TitleProduct>
+        <DescriptionProduct>{description}</DescriptionProduct>
+      </MainProductCard>
 
-      <CountDownContainer>
-        <Counter
-          currentQuantity={1}
-          onLess={() => console.log('1')}
-          onMore={() => console.log('2')}
-        />
-        <ShoppingCartButton theme="primary" />
-      </CountDownContainer>
-    </FooterProductCard>
-  </ProductCardContainer>
-);
+      <FooterProductCard>
+        <PriceContainer>
+          <DescriptionProduct>R$</DescriptionProduct>
+          <PriceProduct>{price}</PriceProduct>
+        </PriceContainer>
+
+        <CountDownContainer>
+          <Counter
+            currentQuantity={quantityCartItem}
+            onLess={() => updateCartProducts({ amount: quantityCartItem - 1, productId: id })}
+            onMore={() => addProductOnCart(id)}
+          />
+          <ShoppingCartButton theme="primary" />
+        </CountDownContainer>
+      </FooterProductCard>
+    </ProductCardContainer>
+  );
+};
 
 export default ProductCard;

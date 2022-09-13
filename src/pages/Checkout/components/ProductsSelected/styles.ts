@@ -40,6 +40,7 @@ export const PricingContainer = styled.div`
     flex-direction: column;
     gap: 1rem;
     width: 100%;
+    margin-top: 2rem;
 `;
 
 export const RowPricing = styled.div`

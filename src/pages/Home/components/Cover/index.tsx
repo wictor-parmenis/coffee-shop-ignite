@@ -66,7 +66,7 @@ const Cover: React.FC = () => {
       </LeftCover>
       <RightCover>
         <ImageCoverContainer>
-          <img src={CoverImage} alt="" />
+          <img src={CoverImage} alt="Café no copo" />
         </ImageCoverContainer>
       </RightCover>
     </CoverContainer>

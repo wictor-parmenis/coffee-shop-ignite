@@ -12,10 +12,15 @@ interface IIconTextButton extends React.ButtonHTMLAttributes<HTMLButtonElement> 
     children: React.ReactNode | JSX.Element[];
     icon: IIconType;
     themeButton: IThemeIconTextButton;
+    selected: boolean;
 }
 
 const IconTextButton: React.FC<IIconTextButton> = ({
-  children, themeButton, icon, ...rest
+  children,
+  themeButton,
+  icon,
+  selected,
+  ...rest
 }) => {
   const themeApplication = useContext(ThemeContext);
 
@@ -37,7 +42,7 @@ const IconTextButton: React.FC<IIconTextButton> = ({
   }, [themeApplication, icon]);
 
   return (
-    <IconTextButtonContainer themeButton={themeButton} {...rest}>
+    <IconTextButtonContainer themeButton={themeButton} selected={selected} {...rest}>
       {typeIcon()}
       {children}
     </IconTextButtonContainer>

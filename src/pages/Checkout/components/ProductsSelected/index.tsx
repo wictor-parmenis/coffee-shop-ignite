@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { ICheckoutFormValidator } from '../..';
 import Button from '../../../../components/Button';
@@ -37,7 +37,7 @@ const ProductsSelected: React.FC<IProductsSelected> = () => {
   }));
 
   const totalPriceWithoutDelivery = cart.reduce((accumulator, current) => {
-    accumulator += current.price;
+    accumulator += current.price * current.amount;
     return accumulator;
   }, 0);
   const totalPriceDelivery = quantityTotalProducts() ? quantityTotalProducts() * 3.5 : 0;

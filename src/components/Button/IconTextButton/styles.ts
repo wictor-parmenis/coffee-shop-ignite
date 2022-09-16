@@ -4,6 +4,7 @@ export type IThemeIconTextButton = 'primary' | 'secondary';
 
 export interface IIconTextButtonContainer {
     themeButton: IThemeIconTextButton;
+    selected: boolean;
 }
 
 const iconTextButtonThemeColor = {
@@ -35,6 +36,13 @@ export const IconTextButtonContainer = styled.button<IIconTextButtonContainer>`
     color: ${({ theme }) => theme['base-text']};
     height: 2.5rem;
     padding: 0 1rem;
+
+    ${({ selected, themeButton, theme }) => selected
+        && themeButton === 'secondary'
+        && `
+        background-color: ${theme['purple-ligth']};
+        border: 1px solid ${theme['purple-dark']};
+    `}
 
     &:hover {
         background-color: ${(props) => (props.themeButton !== 'secondary'

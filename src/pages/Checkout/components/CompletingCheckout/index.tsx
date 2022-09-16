@@ -27,6 +27,7 @@ const CompletingCheckout: React.FC = () => {
     setValue,
     formState: { errors },
     watch,
+    getValues,
   } = useFormContext();
 
   const formErrorsMessage = () => {
@@ -137,6 +138,7 @@ const CompletingCheckout: React.FC = () => {
             style={customStyledButton}
             themeButton="secondary"
             icon="credit-card"
+            selected={getValues('typePayment') === 'credit_card'}
             onClick={() => {
               setValue('typePayment', 'credit_card');
             }}
@@ -145,6 +147,7 @@ const CompletingCheckout: React.FC = () => {
           </IconTextButton>
           <IconTextButton
             type="button"
+            selected={getValues('typePayment') === 'debit_card'}
             style={customStyledButton}
             themeButton="secondary"
             icon="bank"
@@ -159,6 +162,7 @@ const CompletingCheckout: React.FC = () => {
             style={customStyledButton}
             themeButton="secondary"
             icon="money"
+            selected={getValues('typePayment') === 'money'}
             onClick={() => {
               setValue('typePayment', 'money');
             }}

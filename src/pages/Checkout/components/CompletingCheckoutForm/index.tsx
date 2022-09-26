@@ -22,7 +22,7 @@ import {
   TitleCheckout,
 } from './styles';
 
-const CompletingCheckout: React.FC = () => {
+const CompletingCheckoutForm: React.FC = () => {
   const {
     setValue,
     formState: { errors },
@@ -176,4 +176,4 @@ const CompletingCheckout: React.FC = () => {
   );
 };
 
-export default CompletingCheckout;
+export default CompletingCheckoutForm;

@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom';
 import { IProductsContext, ProductsContext } from '../../contexts/productsContext';
-import CompletingCheckout from './components/CompletingCheckout';
+import CompletingCheckoutForm from './components/CompletingCheckoutForm';
 import ProductsSelected from './components/ProductsSelected';
 import {
   CheckoutContainer, LeftContainer, MainContainer, RigthContainer,
@@ -39,7 +39,7 @@ export interface ICheckoutFormValidator {
 }
 
 const Checkout: React.FC = () => {
-  const { products } = useContext<IProductsContext>(
+  const { products, clearCart } = useContext<IProductsContext>(
         ProductsContext as React.Context<IProductsContext>,
   );
   const navigate = useNavigate();
@@ -65,6 +65,7 @@ const Checkout: React.FC = () => {
 
   const handleCheckoutSubmit = (values: ICheckoutFormValidator) => {
     localStorage.setItem(storageAlias.formBasic, JSON.stringify(values));
+    clearCart();
     navigate('/success');
   };
 
@@ -76,7 +77,7 @@ const Checkout: React.FC = () => {
         <FormProvider {...checkoutForm}>
           <MainContainer>
             <LeftContainer>
-              <CompletingCheckout />
+              <CompletingCheckoutForm />
             </LeftContainer>
             <RigthContainer>
               <ProductsSelected products={formattedProducts.slice(0, 2)} />

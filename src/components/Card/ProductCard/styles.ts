@@ -13,7 +13,7 @@ export const ProductCardContainer = styled.div`
     border-top-left-radius: 8px;
     border-bottom-right-radius: 8px;
 
-    width: 23%;
+    max-width: 23%;
     height: 25rem;
 
     margin: auto;

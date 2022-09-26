@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useFormContext } from 'react-hook-form';
-import { ICheckoutFormValidator } from '../..';
+import React, { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../../../components/Button';
 import CheckoutProductCard from '../../../../components/Card/CheckoutProductCard';
 import {
@@ -30,6 +29,13 @@ const ProductsSelected: React.FC<IProductsSelected> = () => {
   const {
     cart, removeProductOfCart, updateCartProducts, quantityTotalProducts,
   } = useContext<IProductsContext>(ProductsContext as React.Context<IProductsContext>);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (cart.length === 0) {
+      navigate('/');
+    }
+  }, [cart, navigate]);
 
   const formattedProducts = cart.map((product) => ({
     ...product,

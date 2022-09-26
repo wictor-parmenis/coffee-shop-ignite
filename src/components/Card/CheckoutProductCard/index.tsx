@@ -30,7 +30,7 @@ const CheckoutProductCard: React.FC<ICheckoutProductCard> = ({
 }) => (
   <CardContainer>
     <LeftCardContainer>
-      <img src={Image} alt={title} />
+      <img src={img || Image} alt={title} />
     </LeftCardContainer>
     <MainCardContainer>
       <SubTitleCard>{title}</SubTitleCard>

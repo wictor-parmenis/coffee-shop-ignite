@@ -31,6 +31,7 @@ export interface IProductsContext {
     removeProductOfCart: (productId: string) => void;
     updateCartProducts: (arg: UpdateProductAmount) => void;
     quantityTotalProducts: () => number;
+    clearCart: () => void;
     products: IProduct[];
     cart: IProduct[];
 }
@@ -52,6 +53,10 @@ export const ProductsProvider: React.FC<IProductsProvider> = ({ children }) => {
 
     return [];
   });
+
+  const clearCart = () => {
+    setCart([]);
+  };
 
   useEffect(() => {
     const stateString = JSON.stringify(cart);
@@ -122,9 +127,10 @@ export const ProductsProvider: React.FC<IProductsProvider> = ({ children }) => {
   return (
     <ProductsContext.Provider
       value={{
-        getListProducts,
         products,
         cart,
+        getListProducts,
+        clearCart,
         addProductOnCart,
         removeProductOfCart,
         updateCartProducts,

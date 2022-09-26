@@ -31,8 +31,6 @@ const Success: React.FC = () => {
       ? JSON.parse(storageDataForm)
       : {};
     setUserData(parsedAddress);
-
-    console.log(parsedAddress);
   }, []);
 
   if (!userData) {

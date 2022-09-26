@@ -28,7 +28,7 @@ interface IProductCard {
 
 const ProductCard: React.FC<IProductCard> = ({
   product: {
-    description, price, title, id,
+    description, price, title, id, img,
   },
   quantityCartItem,
 }) => {
@@ -39,7 +39,7 @@ const ProductCard: React.FC<IProductCard> = ({
   return (
     <ProductCardContainer>
       <ImageProductContainer>
-        <img src={CoffeeImage} alt={title} />
+        <img src={img || CoffeeImage} alt={title} />
       </ImageProductContainer>
 
       <MainProductCard>
